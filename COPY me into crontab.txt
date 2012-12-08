@@ -1,0 +1,16 @@
+#Sync Gmail
+*/1 * * * * /home/picture/syncscripts/mailsync.sh             
+
+#Regularly sync FlickrFrame and restart Feh
+0 * * * * /home/picture/syncscripts/regular.sh             
+
+#Make weather and CNN image, copy it to images folder
+*/10 * * * * /home/picture/syncscripts/rss/rssweather.sh
+*/10 * * * * /home/picture/syncscripts/cnn/cnn.sh
+
+# Turns the screen off then X off at 23:00
+00 00 * * * root /usr/sbin/vbetool dpms off >/dev/null ; sudo /etc/init.d/gdm s$
+# Turns X back on at t 6:45
+00 06 * * * root sudo /etc/init.d/gdm start >/dev/null
+
+
